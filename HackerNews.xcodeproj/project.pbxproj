@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		343C30B4208B7DA50070F597 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343C30B3208B7DA50070F597 /* AppDelegate.swift */; };
-		343C30B6208B7DA50070F597 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343C30B5208B7DA50070F597 /* ViewController.swift */; };
+		343C30B6208B7DA50070F597 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343C30B5208B7DA50070F597 /* SplitViewController.swift */; };
 		343C30B8208B7DA60070F597 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 343C30B7208B7DA60070F597 /* Assets.xcassets */; };
 		343C30BB208B7DA60070F597 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 343C30B9208B7DA60070F597 /* Main.storyboard */; };
 		343C30C7208B7DA60070F597 /* HackerNewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343C30C6208B7DA60070F597 /* HackerNewsTests.swift */; };
 		343C30D2208B7DA60070F597 /* HackerNewsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343C30D1208B7DA60070F597 /* HackerNewsUITests.swift */; };
+		348D8EEF208B96D9001326C2 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348D8EEE208B96D9001326C2 /* PostsViewController.swift */; };
+		34FEDA96208D21B700FC143F /* PostCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FEDA95208D21B700FC143F /* PostCellView.swift */; };
+		34FEDA98208D22EA00FC143F /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34FEDA97208D22EA00FC143F /* PostCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +38,7 @@
 /* Begin PBXFileReference section */
 		343C30B0208B7DA50070F597 /* HackerNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		343C30B3208B7DA50070F597 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		343C30B5208B7DA50070F597 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		343C30B5208B7DA50070F597 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		343C30B7208B7DA60070F597 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		343C30BA208B7DA60070F597 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		343C30BC208B7DA60070F597 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -46,6 +49,9 @@
 		343C30CD208B7DA60070F597 /* HackerNewsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackerNewsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		343C30D1208B7DA60070F597 /* HackerNewsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackerNewsUITests.swift; sourceTree = "<group>"; };
 		343C30D3208B7DA60070F597 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		348D8EEE208B96D9001326C2 /* PostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
+		34FEDA95208D21B700FC143F /* PostCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellView.swift; sourceTree = "<group>"; };
+		34FEDA97208D22EA00FC143F /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,11 +103,14 @@
 			isa = PBXGroup;
 			children = (
 				343C30B3208B7DA50070F597 /* AppDelegate.swift */,
-				343C30B5208B7DA50070F597 /* ViewController.swift */,
+				343C30B5208B7DA50070F597 /* SplitViewController.swift */,
 				343C30B7208B7DA60070F597 /* Assets.xcassets */,
 				343C30B9208B7DA60070F597 /* Main.storyboard */,
 				343C30BC208B7DA60070F597 /* Info.plist */,
 				343C30BD208B7DA60070F597 /* HackerNews.entitlements */,
+				348D8EEE208B96D9001326C2 /* PostsViewController.swift */,
+				34FEDA95208D21B700FC143F /* PostCellView.swift */,
+				34FEDA97208D22EA00FC143F /* PostCell.xib */,
 			);
 			path = HackerNews;
 			sourceTree = "<group>";
@@ -229,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				343C30B8208B7DA60070F597 /* Assets.xcassets in Resources */,
+				34FEDA98208D22EA00FC143F /* PostCell.xib in Resources */,
 				343C30BB208B7DA60070F597 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,7 +264,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				343C30B6208B7DA50070F597 /* ViewController.swift in Sources */,
+				348D8EEF208B96D9001326C2 /* PostsViewController.swift in Sources */,
+				343C30B6208B7DA50070F597 /* SplitViewController.swift in Sources */,
+				34FEDA96208D21B700FC143F /* PostCellView.swift in Sources */,
 				343C30B4208B7DA50070F597 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
