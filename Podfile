@@ -6,6 +6,7 @@ target 'HackerNews' do
   use_frameworks!
 
   # Pods for HackerNews
+  pod 'Alamofire', '~> 4.7'
 
   target 'HackerNewsTests' do
     inherit! :search_paths

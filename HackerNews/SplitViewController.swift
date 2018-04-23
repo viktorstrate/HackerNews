@@ -10,9 +10,12 @@ import Cocoa
 
 class SplitViewController: NSSplitViewController {
 
+    @IBOutlet weak var postsViewItem: NSSplitViewItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        splitView.setPosition(250, ofDividerAt: 0)
+        postsViewItem.minimumThickness = 200
         // Do any additional setup after loading the view.
     }
 
@@ -21,7 +24,14 @@ class SplitViewController: NSSplitViewController {
         // Update the view, if already loaded.
         }
     }
+    
+    override func splitViewDidResizeSubviews(_ notification: Notification) {
+        let width = splitView.arrangedSubviews[0].bounds.width
+        print("Resizing \(width)")
 
+        let vc = self.splitViewItems[0].viewController as! PostsViewController
+        vc.resizeColumn(size: width)
+        
+    }
 
 }
-
