@@ -12,13 +12,16 @@ class SplitViewController: NSSplitViewController, SplitViewControllerPostsDelega
     
     func cellWasSelected() {
         let row = postsViewController.tableView.selectedRow
-        print(HackerNewsCommunication.shared.posts[row].title)
+        let item = HackerNewsCommunication.shared.posts[row]
+        
+        contentViewController.loadItem(item: item)
     }
     
 
     @IBOutlet weak var postsViewItem: NSSplitViewItem!
     
     var postsViewController: PostsViewController!
+    var contentViewController: ContentViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +31,8 @@ class SplitViewController: NSSplitViewController, SplitViewControllerPostsDelega
         
         self.postsViewController = self.childViewControllers[0] as! PostsViewController
         postsViewController.postsDelegate = self
+        
+        self.contentViewController = self.childViewControllers[1] as! ContentViewController
 
         // Do any additional setup after loading the view.
     }

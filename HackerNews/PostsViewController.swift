@@ -36,7 +36,6 @@ extension PostsViewController: NSTableViewDataSource, NSTableViewDelegate {
     func numberOfRows(in tableView: NSTableView) -> Int {
         print("Table count \(HackerNewsCommunication.shared.posts.count)")
         return HackerNewsCommunication.shared.posts.count;
-        //return 10
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView?{

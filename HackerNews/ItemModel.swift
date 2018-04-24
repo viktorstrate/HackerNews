@@ -16,8 +16,9 @@ class ItemModel {
     let kids: [NSNumber]
     let timestamp: Date
     let url: String
+    let textVal: String
     
-    init(title: String, score: NSNumber, id: NSNumber, author: String, kids: [NSNumber], timestamp: NSNumber, url: String) {
+    init(title: String, score: NSNumber, id: NSNumber, author: String, kids: [NSNumber], timestamp: NSNumber, url: String, textVal: String) {
         self.title = title
         self.score = score
         self.id = id
@@ -25,5 +26,6 @@ class ItemModel {
         self.kids = kids
         self.timestamp = Date(timeIntervalSince1970: TimeInterval(exactly: timestamp)!)
         self.url = url
+        self.textVal = textVal
     }
 }

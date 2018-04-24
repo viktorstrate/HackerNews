@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <plugIn identifier="com.apple.WebKit2IBPlugin" version="14109"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
@@ -920,10 +921,10 @@
             </objects>
             <point key="canvasLocation" x="-108" y="1887"/>
         </scene>
-        <!--View Controller-->
+        <!--Content View Controller-->
         <scene sceneID="ohZ-qc-0DY">
             <objects>
-                <viewController id="4Et-WQ-Oa2" sceneMemberID="viewController">
+                <viewController id="4Et-WQ-Oa2" customClass="ContentViewController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="yeU-yM-NZ8">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="322"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -944,6 +945,9 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="btnArticleAction:" target="4Et-WQ-Oa2" id="WtE-hN-G7g"/>
+                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pl3-bz-1Wv" customClass="TabButton" customModule="HackerNews" customModuleProvider="target">
                                             <rect key="frame" x="294" y="290" width="78" height="32"/>
@@ -955,53 +959,52 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="btnCommentsAction:" target="4Et-WQ-Oa2" id="6Ve-f7-FGn"/>
+                                            </connections>
                                         </button>
-                                        <box boxType="custom" borderType="none" borderWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="uPL-an-pVI">
-                                            <rect key="frame" x="0.0" y="290" width="294" height="32"/>
-                                            <view key="contentView" id="aZG-4H-xkY">
-                                                <rect key="frame" x="0.0" y="0.0" width="294" height="32"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            </view>
-                                            <color key="fillColor" red="0.849609375" green="0.82681117237008117" blue="0.80250961835994272" alpha="1" colorSpace="calibratedRGB"/>
-                                        </box>
                                         <tabView drawsBackground="NO" type="noTabsNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="CzW-Mm-pE7">
                                             <rect key="frame" x="0.0" y="0.0" width="450" height="290"/>
                                             <font key="font" metaFont="system"/>
                                             <tabViewItems>
-                                                <tabViewItem label="Tab" identifier="" id="xqw-bH-cEu">
+                                                <tabViewItem label="Comments" identifier="" id="xqw-bH-cEu">
                                                     <view key="view" id="BUd-iB-yvr">
                                                         <rect key="frame" x="0.0" y="0.0" width="450" height="290"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Rw-rz-aEN">
-                                                                <rect key="frame" x="70" y="203" width="31" height="17"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="First" id="Og5-K6-bER">
-                                                                    <font key="font" metaFont="system"/>
-                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                                </textFieldCell>
-                                                            </textField>
-                                                        </subviews>
-                                                    </view>
-                                                </tabViewItem>
-                                                <tabViewItem label="View" identifier="" id="QOJ-XC-x3v">
-                                                    <view key="view" id="1b5-6a-2Hb">
-                                                        <rect key="frame" x="0.0" y="0.0" width="450" height="260"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                        <subviews>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="63N-74-YSY">
-                                                                <rect key="frame" x="70" y="177" width="50" height="17"/>
-                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Second" id="JKH-aE-Pe9">
-                                                                    <font key="font" metaFont="system"/>
-                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                                </textFieldCell>
-                                                            </textField>
+                                                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="LOP-36-Wmk">
+                                                                <rect key="frame" x="0.0" y="0.0" width="450" height="290"/>
+                                                                <connections>
+                                                                    <segue destination="ZCA-EX-5Wb" kind="embed" id="Jah-zI-fdg"/>
+                                                                </connections>
+                                                            </containerView>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstItem="63N-74-YSY" firstAttribute="top" secondItem="1b5-6a-2Hb" secondAttribute="top" constant="66" id="W2k-XL-ICM"/>
-                                                            <constraint firstItem="63N-74-YSY" firstAttribute="leading" secondItem="1b5-6a-2Hb" secondAttribute="leading" constant="72" id="bWE-ss-TM7"/>
+                                                            <constraint firstItem="LOP-36-Wmk" firstAttribute="top" secondItem="BUd-iB-yvr" secondAttribute="top" id="6Q0-qM-Gve"/>
+                                                            <constraint firstAttribute="bottom" secondItem="LOP-36-Wmk" secondAttribute="bottom" id="CO6-c2-40I"/>
+                                                            <constraint firstItem="LOP-36-Wmk" firstAttribute="leading" secondItem="BUd-iB-yvr" secondAttribute="leading" id="QJU-0A-l34"/>
+                                                            <constraint firstAttribute="trailing" secondItem="LOP-36-Wmk" secondAttribute="trailing" id="cV7-fA-1wy"/>
+                                                        </constraints>
+                                                    </view>
+                                                </tabViewItem>
+                                                <tabViewItem label="Article" identifier="" id="QOJ-XC-x3v">
+                                                    <view key="view" id="1b5-6a-2Hb">
+                                                        <rect key="frame" x="0.0" y="0.0" width="450" height="290"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <subviews>
+                                                            <wkWebView wantsLayer="YES" customUserAgent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.7 (KHTML, like Gecko) Version/9.1.2 Safari/601.7.7" translatesAutoresizingMaskIntoConstraints="NO" id="cgf-LE-h4f">
+                                                                <rect key="frame" x="0.0" y="0.0" width="450" height="290"/>
+                                                                <wkWebViewConfiguration key="configuration" applicationNameForUserAgent="Hacker News Mac Client">
+                                                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                                                    <wkPreferences key="preferences" javaScriptCanOpenWindowsAutomatically="NO"/>
+                                                                </wkWebViewConfiguration>
+                                                            </wkWebView>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="cgf-LE-h4f" firstAttribute="leading" secondItem="1b5-6a-2Hb" secondAttribute="leading" id="7j5-za-LoT"/>
+                                                            <constraint firstItem="cgf-LE-h4f" firstAttribute="top" secondItem="1b5-6a-2Hb" secondAttribute="top" id="9RW-lD-hxG"/>
+                                                            <constraint firstAttribute="bottom" secondItem="cgf-LE-h4f" secondAttribute="bottom" id="GGK-7r-KSS"/>
+                                                            <constraint firstAttribute="trailing" secondItem="cgf-LE-h4f" secondAttribute="trailing" id="w53-Oe-4mM"/>
                                                         </constraints>
                                                     </view>
                                                 </tabViewItem>
@@ -1010,24 +1013,56 @@
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                         </tabView>
+                                        <tabView type="noTabsNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="Td8-Ay-Ycu">
+                                            <rect key="frame" x="0.0" y="290" width="294" height="32"/>
+                                            <font key="font" metaFont="system"/>
+                                            <tabViewItems>
+                                                <tabViewItem label="TopComments" identifier="" id="kYz-Tc-8VH">
+                                                    <view key="view" id="YDb-qF-5H6">
+                                                        <rect key="frame" x="0.0" y="0.0" width="294" height="32"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    </view>
+                                                </tabViewItem>
+                                                <tabViewItem label="TopArticle" identifier="" id="wrj-Sr-ICN">
+                                                    <view key="view" id="ORv-XA-nQF">
+                                                        <rect key="frame" x="0.0" y="0.0" width="294" height="32"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <subviews>
+                                                            <progressIndicator wantsLayer="YES" maxValue="100" doubleValue="40" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="tga-H9-zrs">
+                                                                <rect key="frame" x="7" y="6" width="70" height="20"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="70" id="cla-GE-r9V"/>
+                                                                </constraints>
+                                                            </progressIndicator>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="tga-H9-zrs" firstAttribute="top" secondItem="ORv-XA-nQF" secondAttribute="top" constant="7" id="IsN-Da-bnp"/>
+                                                            <constraint firstItem="tga-H9-zrs" firstAttribute="leading" secondItem="ORv-XA-nQF" secondAttribute="leading" constant="7" id="SxU-k7-uJb"/>
+                                                            <constraint firstAttribute="bottom" secondItem="tga-H9-zrs" secondAttribute="bottom" constant="7" id="lEZ-27-wXa"/>
+                                                        </constraints>
+                                                    </view>
+                                                </tabViewItem>
+                                            </tabViewItems>
+                                        </tabView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="pl3-bz-1Wv" firstAttribute="leading" secondItem="uPL-an-pVI" secondAttribute="trailing" id="8ta-Mv-UPP"/>
-                                        <constraint firstItem="uPL-an-pVI" firstAttribute="leading" secondItem="fok-sH-ez0" secondAttribute="leading" id="9iV-9Y-s86"/>
                                         <constraint firstItem="CzW-Mm-pE7" firstAttribute="leading" secondItem="fok-sH-ez0" secondAttribute="leading" id="C7B-vX-YIT"/>
                                         <constraint firstItem="omC-3N-XmL" firstAttribute="leading" secondItem="pl3-bz-1Wv" secondAttribute="trailing" id="HOG-Wx-VhO"/>
                                         <constraint firstItem="pl3-bz-1Wv" firstAttribute="top" secondItem="fok-sH-ez0" secondAttribute="top" id="I6T-ab-CQb"/>
                                         <constraint firstAttribute="trailing" secondItem="omC-3N-XmL" secondAttribute="trailing" id="X9h-fC-eYd"/>
+                                        <constraint firstItem="Td8-Ay-Ycu" firstAttribute="leading" secondItem="fok-sH-ez0" secondAttribute="leading" id="arT-R2-C56"/>
+                                        <constraint firstItem="Td8-Ay-Ycu" firstAttribute="top" secondItem="fok-sH-ez0" secondAttribute="top" id="ctV-6n-siE"/>
                                         <constraint firstAttribute="trailing" secondItem="CzW-Mm-pE7" secondAttribute="trailing" id="ibz-6b-YuN"/>
+                                        <constraint firstItem="CzW-Mm-pE7" firstAttribute="top" secondItem="Td8-Ay-Ycu" secondAttribute="bottom" id="iyb-Sj-qR5"/>
+                                        <constraint firstItem="pl3-bz-1Wv" firstAttribute="leading" secondItem="Td8-Ay-Ycu" secondAttribute="trailing" id="mxi-eQ-sQc"/>
                                         <constraint firstItem="CzW-Mm-pE7" firstAttribute="top" secondItem="omC-3N-XmL" secondAttribute="bottom" id="pzs-ND-Mmw"/>
                                         <constraint firstAttribute="bottom" secondItem="CzW-Mm-pE7" secondAttribute="bottom" id="tx7-hZ-oyJ"/>
-                                        <constraint firstItem="CzW-Mm-pE7" firstAttribute="top" secondItem="uPL-an-pVI" secondAttribute="bottom" id="u6H-u6-cY0"/>
-                                        <constraint firstItem="uPL-an-pVI" firstAttribute="top" secondItem="fok-sH-ez0" secondAttribute="top" id="vJC-Ee-BKs"/>
                                         <constraint firstItem="omC-3N-XmL" firstAttribute="top" secondItem="fok-sH-ez0" secondAttribute="top" id="zEH-w9-WyA"/>
                                     </constraints>
                                 </view>
                                 <color key="borderColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="fillColor" red="1" green="0.99420112371444702" blue="0.98284131288528442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <font key="titleFont" metaFont="message" size="11"/>
                             </box>
                         </subviews>
                         <constraints>
@@ -1037,6 +1072,14 @@
                             <constraint firstAttribute="bottom" secondItem="cOo-cG-Dqw" secondAttribute="bottom" id="jcK-Mm-FKm"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnAtricle" destination="omC-3N-XmL" id="CHZ-he-mC3"/>
+                        <outlet property="btnComments" destination="pl3-bz-1Wv" id="LV2-T5-Lkh"/>
+                        <outlet property="tabView" destination="CzW-Mm-pE7" id="ZuU-cq-4By"/>
+                        <outlet property="topTabView" destination="Td8-Ay-Ycu" id="8ye-mN-2Pf"/>
+                        <outlet property="webProgress" destination="tga-H9-zrs" id="bUs-4w-mGc"/>
+                        <outlet property="webView" destination="cgf-LE-h4f" id="7vh-8W-lj7"/>
+                    </connections>
                 </viewController>
                 <customObject id="Idh-FC-6VA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1146,6 +1189,40 @@
                 </viewController>
             </objects>
             <point key="canvasLocation" x="218" y="1788"/>
+        </scene>
+        <!--Comments View Controller-->
+        <scene sceneID="42m-Ys-S0v">
+            <objects>
+                <viewController id="ZCA-EX-5Wb" customClass="CommentsViewController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Xa1-yg-hhM">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="IYV-di-5VM">
+                                <rect key="frame" x="18" y="232" width="414" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="upS-4X-Tlz"/>
+                                </constraints>
+                                <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" title="Title of the article" id="M3a-dt-O4E">
+                                    <font key="font" size="15" name=".AppleSystemUIFontMedium"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="IYV-di-5VM" firstAttribute="leading" secondItem="Xa1-yg-hhM" secondAttribute="leading" constant="20" id="9m0-0q-pEQ"/>
+                            <constraint firstItem="IYV-di-5VM" firstAttribute="top" secondItem="Xa1-yg-hhM" secondAttribute="top" constant="8" id="KCt-Ur-F27"/>
+                            <constraint firstAttribute="trailing" secondItem="IYV-di-5VM" secondAttribute="trailing" constant="20" id="RsN-OD-RBj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="itemText" destination="IYV-di-5VM" id="39a-pN-KTL"/>
+                    </connections>
+                </viewController>
+                <customObject id="NDl-SO-4Gb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1160" y="1555"/>
         </scene>
     </scenes>
 </document>

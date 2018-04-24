@@ -38,7 +38,7 @@ class HackerNewsCommunication {
     func refreshPosts() {
         print("Getting new posts from Hacker News...")
         
-        addLoadingResources(amount: 11)
+        addLoadingResources(amount: 51)
         
         Alamofire.request("https://hacker-news.firebaseio.com/v0/topstories.json").responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
@@ -49,7 +49,7 @@ class HackerNewsCommunication {
             
             if let json = response.result.value as? [Int32] {
                 
-                for i in 0...9 {
+                for i in 0...49 {
                     print("Value \(i) = \(json[i])")
                     Alamofire.request("https://hacker-news.firebaseio.com/v0/item/\(json[i]).json")
                         .responseJSON { response in
@@ -57,7 +57,7 @@ class HackerNewsCommunication {
                             if response.data != nil {
                                 do {
                                     let data = try JSON(data: response.data!)
-                                    let itemModel = ItemModel(title: data["title"].stringValue, score: data["score"].numberValue, id: data["id"].numberValue, author: data["by"].stringValue, kids: data["kids"].arrayValue.map({$0.numberValue}), timestamp: data["time"].numberValue, url: data["url"].stringValue)
+                                    let itemModel = ItemModel(title: data["title"].stringValue, score: data["score"].numberValue, id: data["id"].numberValue, author: data["by"].stringValue, kids: data["kids"].arrayValue.map({$0.numberValue}), timestamp: data["time"].numberValue, url: data["url"].stringValue, textVal: data["text"].stringValue)
 
                                     self.posts.append(itemModel)
                                     //if self.delegate != nil {

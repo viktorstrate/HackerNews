@@ -63,11 +63,7 @@ class TabButton: NSButton, CALayerDelegate {
             leftLayer.frame = CGRect(x: 0, y: -1, width: dirtyRect.width + 1, height: dirtyRect.height + 2)
             
             if layer.sublayers == nil || layer.sublayers?.contains(leftLayer) == false {
-                
-                
-                
-                print("Adding")
-                layer.addSublayer(leftLayer)
+               // layer.addSublayer(leftLayer)
             }
         
         }
