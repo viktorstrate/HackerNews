@@ -7,6 +7,7 @@ target 'HackerNews' do
 
   # Pods for HackerNews
   pod 'Alamofire', '~> 4.7'
+  pod 'SwiftyJSON', '~> 4.0'
 
   target 'HackerNewsTests' do
     inherit! :search_paths

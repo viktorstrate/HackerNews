@@ -16,6 +16,10 @@ class SplitViewController: NSSplitViewController {
         super.viewDidLoad()
         splitView.setPosition(250, ofDividerAt: 0)
         postsViewItem.minimumThickness = 200
+        
+        //let postsViewController = self.childViewControllers[0] as! PostsViewController
+        //postsViewController.tableView.delegate = self
+
         // Do any additional setup after loading the view.
     }
 
@@ -34,4 +38,10 @@ class SplitViewController: NSSplitViewController {
         
     }
 
+}
+
+extension SplitViewController: NSTableViewDelegate {
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        print("Selection did change")
+    }
 }

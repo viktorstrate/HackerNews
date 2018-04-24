@@ -9,6 +9,7 @@
 import Cocoa
 
 class PostsViewController: NSViewController {
+    
 
     @IBOutlet var tableView: NSTableView!
     @IBOutlet weak var scrollView: NSScrollView!
@@ -16,14 +17,15 @@ class PostsViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.rowHeight = 42
+        tableView.rowHeight = 60
         resizeColumn(size: 250)
+        HackerNewsCommunication.shared.delegate = self
+        tableView.delegate = self
     }
     
     func resizeColumn(size: CGFloat) {
-        print("Resizing from posts")
         let column = tableView.tableColumns[0]
-        column.width = size
+        column.width = size - 5
     }
     
 }
@@ -31,17 +33,37 @@ class PostsViewController: NSViewController {
 extension PostsViewController: NSTableViewDataSource, NSTableViewDelegate {
     
     func numberOfRows(in tableView: NSTableView) -> Int {
+        print("Table count \(HackerNewsCommunication.shared.posts.count)")
         return HackerNewsCommunication.shared.posts.count;
+        //return 10
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView?{
         
+        print("Making view")
+        
         let cell: PostCellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "defaultPostRow"), owner: self) as! PostCellView
         
-        cell.txtTitle.stringValue = HackerNewsCommunication.shared.posts[row]
+        let item = HackerNewsCommunication.shared.posts[row]
+        
+        cell.txtTitle.stringValue = item.title
+        cell.txtUrl.stringValue = item.url
+        cell.txtPoints.stringValue = "Points \(item.score)"
+        cell.txtUsername.stringValue = item.author
+        
+        print("Returning view")
         
         return cell
         
     }
+    
+}
+
+extension PostsViewController: HackerNewsCommunicationDelegate {
+    func postsUpdated() {
+        print("Posts updated, reloading data")
+        tableView.reloadData()
+    }
+    
     
 }
