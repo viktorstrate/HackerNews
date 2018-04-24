@@ -52,7 +52,7 @@ class HackerNewsCommunication {
             if let json = response.result.value as? [Int] {
                 
                 self.postJson = json
-                self.loadMore()
+                self.loadMore(force: true)
                 
             }
             
@@ -64,9 +64,13 @@ class HackerNewsCommunication {
         }
     }
     
-    func loadMore() {
+    func loadMore(force: Bool = false) {
         
-        if postJson == nil || loadingResources > 0 {
+        if postJson == nil {
+            return
+        }
+        
+        if force == false && loadingResources > 0 {
             return
         }
         

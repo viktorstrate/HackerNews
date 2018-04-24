@@ -14,18 +14,20 @@
                 <application id="hnw-xV-0zn" sceneMemberID="viewController">
                     <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
                         <items>
-                            <menuItem title="HackerNews" id="1Xt-HY-uBw">
+                            <menuItem title="Hacker News" id="1Xt-HY-uBw">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="HackerNews" systemMenu="apple" id="uQy-DD-JDr">
+                                <menu key="submenu" title="Hacker News" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
-                                        <menuItem title="About HackerNews" id="5kV-Vb-QxS">
+                                        <menuItem title="About Hacker News" id="5kV-Vb-QxS">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
+                                            <attributedString key="attributedTitle"/>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                                         <menuItem title="Services" id="NMo-om-nkz">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -682,7 +684,7 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="81" y="-142"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -719,7 +721,7 @@
                                     <segue destination="WEe-DC-07w" kind="embed" id="cc3-07-vki"/>
                                 </connections>
                             </containerView>
-                            <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="menu" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="9qR-k0-lny">
+                            <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="dark" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="9qR-k0-lny">
                                 <rect key="frame" x="0.0" y="0.0" width="200" height="480"/>
                                 <subviews>
                                     <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" doubleValue="40" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="2f8-ub-3Pp">
@@ -775,7 +777,7 @@
                 </splitViewController>
                 <customObject id="dEM-w7-bIh" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-17" y="1410"/>
+            <point key="canvasLocation" x="13" y="1500"/>
         </scene>
         <!--Posts View Controller-->
         <scene sceneID="uDL-Pp-IS2">
@@ -1199,12 +1201,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="IYV-di-5VM">
-                                <rect key="frame" x="18" y="260" width="414" height="32"/>
+                                <rect key="frame" x="18" y="258" width="414" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="upS-4X-Tlz"/>
                                 </constraints>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Title of the article" id="M3a-dt-O4E">
-                                    <font key="font" metaFont="system" size="22"/>
+                                    <font key="font" metaFont="system" size="28"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
