@@ -8,6 +8,8 @@
 
 import Cocoa
 
+var postsContext = 0
+
 class PostsViewController: NSViewController {
     
 
@@ -22,11 +24,38 @@ class PostsViewController: NSViewController {
         tableView.rowHeight = 60
         resizeColumn(size: 250)
         HackerNewsCommunication.shared.delegate = self
+        
+        let enclosingView = tableView.enclosingScrollView!
+        
+        enclosingView.postsBoundsChangedNotifications = true
+        NotificationCenter.default.addObserver(self, selector: #selector(scrollEvent(notification:)), name: NSView.boundsDidChangeNotification, object: nil)
+        
+    }
+    
+    @objc func scrollEvent(notification: NSNotification) {
+        if let sv = tableView.enclosingScrollView {
+            let scrollLength = sv.documentVisibleRect.maxY
+            let scrollSize = tableView.frame.size.height
+            
+            if (scrollSize - scrollLength < 500) {
+                HackerNewsCommunication.shared.loadMore()
+            }
+        }
     }
     
     func resizeColumn(size: CGFloat) {
         let column = tableView.tableColumns[0]
         column.width = size - 5
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+        print("Observing")
+        
+        if keyPath == "verticalScroller" {
+            print("You scrolled")
+        }
+        
     }
     
 }

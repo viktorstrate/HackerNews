@@ -1199,12 +1199,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="IYV-di-5VM">
-                                <rect key="frame" x="18" y="232" width="414" height="60"/>
+                                <rect key="frame" x="18" y="260" width="414" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="upS-4X-Tlz"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="upS-4X-Tlz"/>
                                 </constraints>
-                                <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" title="Title of the article" id="M3a-dt-O4E">
-                                    <font key="font" size="15" name=".AppleSystemUIFontMedium"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Title of the article" id="M3a-dt-O4E">
+                                    <font key="font" metaFont="system" size="22"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>

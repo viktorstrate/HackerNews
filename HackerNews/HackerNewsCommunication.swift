@@ -20,6 +20,9 @@ class HackerNewsCommunication {
     private var loadingResources: Int
     private var maxLoadingResources: Int
     
+    var postJson: [Int]?
+    let loadedPosts = 0
+    
     var delegate: HackerNewsCommunicationDelegate?
     
     init() {
@@ -38,43 +41,61 @@ class HackerNewsCommunication {
     func refreshPosts() {
         print("Getting new posts from Hacker News...")
         
-        addLoadingResources(amount: 51)
+        addLoadingResources(amount: 1)
         
         Alamofire.request("https://hacker-news.firebaseio.com/v0/topstories.json").responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
             print("Response: \(String(describing: response.response))") // http url response
             //print("Result: \(response.result)")                         // response serialization result
             
-            self.loadingResourceComplete()
             
-            if let json = response.result.value as? [Int32] {
+            if let json = response.result.value as? [Int] {
                 
-                for i in 0...49 {
-                    print("Value \(i) = \(json[i])")
-                    Alamofire.request("https://hacker-news.firebaseio.com/v0/item/\(json[i]).json")
-                        .responseJSON { response in
-                        
-                            if response.data != nil {
-                                do {
-                                    let data = try JSON(data: response.data!)
-                                    let itemModel = ItemModel(title: data["title"].stringValue, score: data["score"].numberValue, id: data["id"].numberValue, author: data["by"].stringValue, kids: data["kids"].arrayValue.map({$0.numberValue}), timestamp: data["time"].numberValue, url: data["url"].stringValue, textVal: data["text"].stringValue)
-
-                                    self.posts.append(itemModel)
-                                    //if self.delegate != nil {
-                                    //    self.delegate?.postsUpdated()
-                                    //}
-                                } catch {
-                                    print("Somthing went wrong")
-                                }
-                            }
-                            
-                            self.loadingResourceComplete()
-                    }
-                }
+                self.postJson = json
+                self.loadMore()
+                
             }
+            
+            self.loadingResourceComplete()
             
             if self.delegate != nil {
                 self.delegate?.postsUpdated()
+            }
+        }
+    }
+    
+    func loadMore() {
+        
+        if postJson == nil || loadingResources > 0 {
+            return
+        }
+        
+        print("Loading more posts")
+        
+        let json = postJson!
+        
+        addLoadingResources(amount: 50)
+        
+        for i in 0...49 {
+            print("Value \(i) = \(json[i])")
+            Alamofire.request("https://hacker-news.firebaseio.com/v0/item/\(json[i]).json")
+                .responseJSON { response in
+                    
+                    if response.data != nil {
+                        do {
+                            let data = try JSON(data: response.data!)
+                            let itemModel = ItemModel(title: data["title"].stringValue, score: data["score"].numberValue, id: data["id"].numberValue, author: data["by"].stringValue, kids: data["kids"].arrayValue.map({$0.numberValue}), timestamp: data["time"].numberValue, url: data["url"].stringValue, textVal: data["text"].stringValue)
+                            
+                            self.posts.append(itemModel)
+                            if self.delegate != nil {
+                                self.delegate?.postsUpdated()
+                            }
+                        } catch {
+                            print("Somthing went wrong")
+                        }
+                    }
+                    
+                    self.loadingResourceComplete()
             }
         }
     }
