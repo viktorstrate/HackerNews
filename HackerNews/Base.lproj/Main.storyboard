@@ -718,7 +718,7 @@
                                     <segue destination="WEe-DC-07w" kind="embed" id="cc3-07-vki"/>
                                 </connections>
                             </containerView>
-                            <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="menu" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="9qR-k0-lny">
+                            <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="menu" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="9qR-k0-lny">
                                 <rect key="frame" x="0.0" y="0.0" width="200" height="480"/>
                                 <subviews>
                                     <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" doubleValue="40" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="2f8-ub-3Pp">
@@ -925,14 +925,106 @@
             <objects>
                 <viewController id="4Et-WQ-Oa2" sceneMemberID="viewController">
                     <view key="view" id="yeU-yM-NZ8">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="322"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box boxType="custom" borderWidth="0.0" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="cOo-cG-Dqw">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="322"/>
                                 <view key="contentView" id="fok-sH-ez0">
-                                    <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="450" height="322"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="omC-3N-XmL" customClass="TabButton" customModule="HackerNews" customModuleProvider="target">
+                                            <rect key="frame" x="372" y="290" width="78" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="32" id="Cbt-1v-9Wr"/>
+                                                <constraint firstAttribute="width" constant="78" id="gWC-3k-7as"/>
+                                            </constraints>
+                                            <buttonCell key="cell" type="square" title="Article" bezelStyle="shadowlessSquare" alignment="center" state="on" inset="2" id="uQE-1R-OST">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pl3-bz-1Wv" customClass="TabButton" customModule="HackerNews" customModuleProvider="target">
+                                            <rect key="frame" x="294" y="290" width="78" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="78" id="AHr-va-BuF"/>
+                                                <constraint firstAttribute="height" constant="32" id="G7f-hg-HZ1"/>
+                                            </constraints>
+                                            <buttonCell key="cell" type="square" title="Comments" bezelStyle="shadowlessSquare" alignment="center" state="on" inset="2" id="ARa-rH-Xes">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
+                                        <box boxType="custom" borderType="none" borderWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="uPL-an-pVI">
+                                            <rect key="frame" x="0.0" y="290" width="294" height="32"/>
+                                            <view key="contentView" id="aZG-4H-xkY">
+                                                <rect key="frame" x="0.0" y="0.0" width="294" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </view>
+                                            <color key="fillColor" red="0.849609375" green="0.82681117237008117" blue="0.80250961835994272" alpha="1" colorSpace="calibratedRGB"/>
+                                        </box>
+                                        <tabView drawsBackground="NO" type="noTabsNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="CzW-Mm-pE7">
+                                            <rect key="frame" x="0.0" y="0.0" width="450" height="290"/>
+                                            <font key="font" metaFont="system"/>
+                                            <tabViewItems>
+                                                <tabViewItem label="Tab" identifier="" id="xqw-bH-cEu">
+                                                    <view key="view" id="BUd-iB-yvr">
+                                                        <rect key="frame" x="0.0" y="0.0" width="450" height="290"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <subviews>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Rw-rz-aEN">
+                                                                <rect key="frame" x="70" y="203" width="31" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="First" id="Og5-K6-bER">
+                                                                    <font key="font" metaFont="system"/>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                        </subviews>
+                                                    </view>
+                                                </tabViewItem>
+                                                <tabViewItem label="View" identifier="" id="QOJ-XC-x3v">
+                                                    <view key="view" id="1b5-6a-2Hb">
+                                                        <rect key="frame" x="0.0" y="0.0" width="450" height="260"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <subviews>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="63N-74-YSY">
+                                                                <rect key="frame" x="70" y="177" width="50" height="17"/>
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Second" id="JKH-aE-Pe9">
+                                                                    <font key="font" metaFont="system"/>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="63N-74-YSY" firstAttribute="top" secondItem="1b5-6a-2Hb" secondAttribute="top" constant="66" id="W2k-XL-ICM"/>
+                                                            <constraint firstItem="63N-74-YSY" firstAttribute="leading" secondItem="1b5-6a-2Hb" secondAttribute="leading" constant="72" id="bWE-ss-TM7"/>
+                                                        </constraints>
+                                                    </view>
+                                                </tabViewItem>
+                                            </tabViewItems>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </tabView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="pl3-bz-1Wv" firstAttribute="leading" secondItem="uPL-an-pVI" secondAttribute="trailing" id="8ta-Mv-UPP"/>
+                                        <constraint firstItem="uPL-an-pVI" firstAttribute="leading" secondItem="fok-sH-ez0" secondAttribute="leading" id="9iV-9Y-s86"/>
+                                        <constraint firstItem="CzW-Mm-pE7" firstAttribute="leading" secondItem="fok-sH-ez0" secondAttribute="leading" id="C7B-vX-YIT"/>
+                                        <constraint firstItem="omC-3N-XmL" firstAttribute="leading" secondItem="pl3-bz-1Wv" secondAttribute="trailing" id="HOG-Wx-VhO"/>
+                                        <constraint firstItem="pl3-bz-1Wv" firstAttribute="top" secondItem="fok-sH-ez0" secondAttribute="top" id="I6T-ab-CQb"/>
+                                        <constraint firstAttribute="trailing" secondItem="omC-3N-XmL" secondAttribute="trailing" id="X9h-fC-eYd"/>
+                                        <constraint firstAttribute="trailing" secondItem="CzW-Mm-pE7" secondAttribute="trailing" id="ibz-6b-YuN"/>
+                                        <constraint firstItem="CzW-Mm-pE7" firstAttribute="top" secondItem="omC-3N-XmL" secondAttribute="bottom" id="pzs-ND-Mmw"/>
+                                        <constraint firstAttribute="bottom" secondItem="CzW-Mm-pE7" secondAttribute="bottom" id="tx7-hZ-oyJ"/>
+                                        <constraint firstItem="CzW-Mm-pE7" firstAttribute="top" secondItem="uPL-an-pVI" secondAttribute="bottom" id="u6H-u6-cY0"/>
+                                        <constraint firstItem="uPL-an-pVI" firstAttribute="top" secondItem="fok-sH-ez0" secondAttribute="top" id="vJC-Ee-BKs"/>
+                                        <constraint firstItem="omC-3N-XmL" firstAttribute="top" secondItem="fok-sH-ez0" secondAttribute="top" id="zEH-w9-WyA"/>
+                                    </constraints>
                                 </view>
                                 <color key="borderColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="fillColor" red="1" green="0.99420112371444702" blue="0.98284131288528442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -948,7 +1040,7 @@
                 </viewController>
                 <customObject id="Idh-FC-6VA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="612" y="1410"/>
+            <point key="canvasLocation" x="612" y="1555"/>
         </scene>
         <!--Posts View Controller-->
         <scene sceneID="jJo-wn-LZd">

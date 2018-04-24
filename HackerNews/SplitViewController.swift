@@ -8,17 +8,26 @@
 
 import Cocoa
 
-class SplitViewController: NSSplitViewController {
+class SplitViewController: NSSplitViewController, SplitViewControllerPostsDelegate {
+    
+    func cellWasSelected() {
+        let row = postsViewController.tableView.selectedRow
+        print(HackerNewsCommunication.shared.posts[row].title)
+    }
+    
 
     @IBOutlet weak var postsViewItem: NSSplitViewItem!
+    
+    var postsViewController: PostsViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         splitView.setPosition(250, ofDividerAt: 0)
         postsViewItem.minimumThickness = 200
         
-        //let postsViewController = self.childViewControllers[0] as! PostsViewController
-        //postsViewController.tableView.delegate = self
+        
+        self.postsViewController = self.childViewControllers[0] as! PostsViewController
+        postsViewController.postsDelegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -44,4 +53,8 @@ extension SplitViewController: NSTableViewDelegate {
     func tableViewSelectionDidChange(_ notification: Notification) {
         print("Selection did change")
     }
+}
+
+protocol SplitViewControllerPostsDelegate {
+    func cellWasSelected()
 }

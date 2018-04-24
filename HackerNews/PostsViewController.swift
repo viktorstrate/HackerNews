@@ -14,13 +14,14 @@ class PostsViewController: NSViewController {
     @IBOutlet var tableView: NSTableView!
     @IBOutlet weak var scrollView: NSScrollView!
     
+    var postsDelegate: SplitViewControllerPostsDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.rowHeight = 60
         resizeColumn(size: 250)
         HackerNewsCommunication.shared.delegate = self
-        tableView.delegate = self
     }
     
     func resizeColumn(size: CGFloat) {
@@ -40,8 +41,6 @@ extension PostsViewController: NSTableViewDataSource, NSTableViewDelegate {
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView?{
         
-        print("Making view")
-        
         let cell: PostCellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "defaultPostRow"), owner: self) as! PostCellView
         
         let item = HackerNewsCommunication.shared.posts[row]
@@ -51,10 +50,12 @@ extension PostsViewController: NSTableViewDataSource, NSTableViewDelegate {
         cell.txtPoints.stringValue = "Points \(item.score)"
         cell.txtUsername.stringValue = item.author
         
-        print("Returning view")
-        
         return cell
         
+    }
+    
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        self.postsDelegate?.cellWasSelected()
     }
     
 }
@@ -64,6 +65,4 @@ extension PostsViewController: HackerNewsCommunicationDelegate {
         print("Posts updated, reloading data")
         tableView.reloadData()
     }
-    
-    
 }
