@@ -16,10 +16,16 @@
 		343C30BB208B7DA60070F597 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 343C30B9208B7DA60070F597 /* Main.storyboard */; };
 		343C30C7208B7DA60070F597 /* HackerNewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343C30C6208B7DA60070F597 /* HackerNewsTests.swift */; };
 		343C30D2208B7DA60070F597 /* HackerNewsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343C30D1208B7DA60070F597 /* HackerNewsUITests.swift */; };
+		347091372093AE0000DF58FD /* CommentsCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347091362093AE0000DF58FD /* CommentsCollectionLayout.swift */; };
+		3470913A2093BB1900DF58FD /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347091392093BB1900DF58FD /* CommentModel.swift */; };
 		348D8EEF208B96D9001326C2 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348D8EEE208B96D9001326C2 /* PostsViewController.swift */; };
 		349A63EF208F85CD00BE4107 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349A63EE208F85CD00BE4107 /* ContentViewController.swift */; };
 		349A63F2208F93B500BE4107 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349A63F0208F93B500BE4107 /* CommentsViewController.swift */; };
 		34AE67D9208F472D0087AFC3 /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE67D8208F472D0087AFC3 /* TabButton.swift */; };
+		34B0409A2090FF220045C035 /* CommentsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B040992090FF220045C035 /* CommentsScrollView.swift */; };
+		34B0E0072091086D009C901D /* Content.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34B0E0052091086D009C901D /* Content.storyboard */; };
+		34B0E00A20911386009C901D /* CommentViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B0E00820911386009C901D /* CommentViewItem.swift */; };
+		34B0E00B20911386009C901D /* CommentViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34B0E00920911386009C901D /* CommentViewItem.xib */; };
 		34FEDA96208D21B700FC143F /* PostCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FEDA95208D21B700FC143F /* PostCellView.swift */; };
 		44E7050E14ED51D7AB74FAC1 /* Pods_HackerNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19231FF6F154F86063591A8 /* Pods_HackerNews.framework */; };
 		5B774FA74ADDF72CE2A6BC1A /* Pods_HackerNewsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AC0324A72EBE3C60804B533 /* Pods_HackerNewsUITests.framework */; };
@@ -62,10 +68,16 @@
 		343C30CD208B7DA60070F597 /* HackerNewsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackerNewsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		343C30D1208B7DA60070F597 /* HackerNewsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackerNewsUITests.swift; sourceTree = "<group>"; };
 		343C30D3208B7DA60070F597 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		347091362093AE0000DF58FD /* CommentsCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsCollectionLayout.swift; sourceTree = "<group>"; };
+		347091392093BB1900DF58FD /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
 		348D8EEE208B96D9001326C2 /* PostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
 		349A63EE208F85CD00BE4107 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		349A63F0208F93B500BE4107 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		34AE67D8208F472D0087AFC3 /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
+		34B040992090FF220045C035 /* CommentsScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsScrollView.swift; sourceTree = "<group>"; };
+		34B0E0062091086D009C901D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = HackerNews/Base.lproj/Content.storyboard; sourceTree = "<group>"; };
+		34B0E00820911386009C901D /* CommentViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewItem.swift; sourceTree = "<group>"; };
+		34B0E00920911386009C901D /* CommentViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentViewItem.xib; sourceTree = "<group>"; };
 		34FEDA95208D21B700FC143F /* PostCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellView.swift; sourceTree = "<group>"; };
 		659584F4C80EB4A41E02FD97 /* Pods-HackerNewsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerNewsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackerNewsUITests/Pods-HackerNewsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6A24DEF7855A940DB0B2691C /* Pods_HackerNewsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackerNewsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,20 +141,25 @@
 		343C30B2208B7DA50070F597 /* HackerNews */ = {
 			isa = PBXGroup;
 			children = (
+				347091382093BB0700DF58FD /* Models */,
 				343C30B3208B7DA50070F597 /* AppDelegate.swift */,
 				343C30B5208B7DA50070F597 /* SplitViewController.swift */,
 				343C30B7208B7DA60070F597 /* Assets.xcassets */,
 				343C30B9208B7DA60070F597 /* Main.storyboard */,
+				34B0E0052091086D009C901D /* Content.storyboard */,
 				343C30BC208B7DA60070F597 /* Info.plist */,
 				343C30BD208B7DA60070F597 /* HackerNews.entitlements */,
 				348D8EEE208B96D9001326C2 /* PostsViewController.swift */,
 				34FEDA95208D21B700FC143F /* PostCellView.swift */,
 				343B3EE9208E2F4C00973185 /* HackerNewsCommunication.swift */,
-				3437DFB4208EFDB500FFC519 /* ItemModel.swift */,
 				3437DFB6208F04D400FFC519 /* MainViewController.swift */,
 				34AE67D8208F472D0087AFC3 /* TabButton.swift */,
 				349A63EE208F85CD00BE4107 /* ContentViewController.swift */,
 				349A63F0208F93B500BE4107 /* CommentsViewController.swift */,
+				34B040992090FF220045C035 /* CommentsScrollView.swift */,
+				34B0E00820911386009C901D /* CommentViewItem.swift */,
+				34B0E00920911386009C901D /* CommentViewItem.xib */,
+				347091362093AE0000DF58FD /* CommentsCollectionLayout.swift */,
 			);
 			path = HackerNews;
 			sourceTree = "<group>";
@@ -163,6 +180,15 @@
 				343C30D3208B7DA60070F597 /* Info.plist */,
 			);
 			path = HackerNewsUITests;
+			sourceTree = "<group>";
+		};
+		347091382093BB0700DF58FD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3437DFB4208EFDB500FFC519 /* ItemModel.swift */,
+				347091392093BB1900DF58FD /* CommentModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		778A36907DF084DB0CFB5D10 /* Pods */ = {
@@ -302,7 +328,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				343C30B8208B7DA60070F597 /* Assets.xcassets in Resources */,
+				34B0E00B20911386009C901D /* CommentViewItem.xib in Resources */,
 				343C30BB208B7DA60070F597 /* Main.storyboard in Resources */,
+				34B0E0072091086D009C901D /* Content.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,11 +437,15 @@
 				343B3EEA208E2F4C00973185 /* HackerNewsCommunication.swift in Sources */,
 				348D8EEF208B96D9001326C2 /* PostsViewController.swift in Sources */,
 				349A63EF208F85CD00BE4107 /* ContentViewController.swift in Sources */,
+				34B0E00A20911386009C901D /* CommentViewItem.swift in Sources */,
 				343C30B6208B7DA50070F597 /* SplitViewController.swift in Sources */,
+				347091372093AE0000DF58FD /* CommentsCollectionLayout.swift in Sources */,
 				34AE67D9208F472D0087AFC3 /* TabButton.swift in Sources */,
 				34FEDA96208D21B700FC143F /* PostCellView.swift in Sources */,
 				349A63F2208F93B500BE4107 /* CommentsViewController.swift in Sources */,
+				3470913A2093BB1900DF58FD /* CommentModel.swift in Sources */,
 				343C30B4208B7DA50070F597 /* AppDelegate.swift in Sources */,
+				34B0409A2090FF220045C035 /* CommentsScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +487,14 @@
 				343C30BA208B7DA60070F597 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		34B0E0052091086D009C901D /* Content.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				34B0E0062091086D009C901D /* Base */,
+			);
+			name = Content.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -28,6 +28,7 @@ class SplitViewController: NSSplitViewController, SplitViewControllerPostsDelega
         splitView.setPosition(250, ofDividerAt: 0)
         postsViewItem.minimumThickness = 200
         
+        HackerNewsCommunication.shared.delegate = self
         
         self.postsViewController = self.childViewControllers[0] as! PostsViewController
         postsViewController.postsDelegate = self
@@ -44,11 +45,19 @@ class SplitViewController: NSSplitViewController, SplitViewControllerPostsDelega
     }
     
     override func splitViewDidResizeSubviews(_ notification: Notification) {
-        let width = splitView.arrangedSubviews[0].bounds.width
-        print("Resizing \(width)")
+        let postsWidth = splitView.arrangedSubviews[0].bounds.width
+        let commentsWidth = splitView.arrangedSubviews[1].bounds.width
+        print("Resizing \(postsWidth), \(commentsWidth)")
 
-        let vc = self.splitViewItems[0].viewController as! PostsViewController
-        vc.resizeColumn(size: width)
+        let postsVC = self.splitViewItems[0].viewController as! PostsViewController
+        postsVC.resizeColumn(size: postsWidth)
+        
+        let contentVC = self.splitViewItems[1].viewController as! ContentViewController
+        
+        /*let commentsLayout = contentVC.commentsViewController?.collectionView.collectionViewLayout as! CommentsCollectionLayout
+        
+        commentsLayout.commentWidth = Int(commentsWidth)
+        commentsLayout.invalidateLayout()*/
         
     }
 
@@ -57,6 +66,14 @@ class SplitViewController: NSSplitViewController, SplitViewControllerPostsDelega
 extension SplitViewController: NSTableViewDelegate {
     func tableViewSelectionDidChange(_ notification: Notification) {
         print("Selection did change")
+    }
+}
+
+extension SplitViewController: HackerNewsCommunicationDelegate {
+    func postsUpdated() {
+        //print("Posts updated, reloading data")
+        postsViewController.tableView.reloadData()
+        contentViewController.commentsViewController?.collectionView.reloadData()
     }
 }
 

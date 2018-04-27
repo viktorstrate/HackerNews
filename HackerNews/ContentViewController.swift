@@ -16,7 +16,7 @@ class ContentViewController: NSViewController, WKNavigationDelegate {
     @IBOutlet weak var btnAtricle: TabButton!
     @IBOutlet weak var tabView: NSTabView!
     @IBOutlet weak var topTabView: NSTabView!
-    
+
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var webProgress: NSProgressIndicator!
     
@@ -51,8 +51,10 @@ class ContentViewController: NSViewController, WKNavigationDelegate {
     
     func loadItem (item: ItemModel) {
         currentItem = item
-        webView.load(URLRequest(url: URL(string: item.url)!))
-        commentsViewController?.itemText.stringValue = item.title
+        webView.load(URLRequest(url: item.url))
+        commentsViewController?.currentPost = item;
+        
+        HackerNewsCommunication.shared.loadCommentsOfPost(post: item)
     }
     
     private func _setTabView(view: Int) {
@@ -92,6 +94,11 @@ class ContentViewController: NSViewController, WKNavigationDelegate {
     }
     
     
+    @IBAction func openInBrowserAction(_ sender: Any) {
+        if let item = currentItem {
+            NSWorkspace.shared.open(item.url)
+        }
+    }
     @IBAction func btnCommentsAction(_ sender: Any) {
         self.shownView = 0
     }

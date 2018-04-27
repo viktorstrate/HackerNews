@@ -12,7 +12,6 @@ class PostCellView: NSTableCellView {
     
     @IBOutlet weak var txtTitle: NSTextField!
     @IBOutlet weak var txtUrl: NSTextField!
-    @IBOutlet weak var txtUsername: NSTextField!
-    @IBOutlet weak var txtPoints: NSTextField!
+    @IBOutlet weak var txtDetails: NSTextField!
     
 }

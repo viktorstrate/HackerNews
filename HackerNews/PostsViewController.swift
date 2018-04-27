@@ -23,7 +23,6 @@ class PostsViewController: NSViewController {
         
         tableView.rowHeight = 60
         resizeColumn(size: 250)
-        HackerNewsCommunication.shared.delegate = self
         
         let enclosingView = tableView.enclosingScrollView!
         
@@ -63,7 +62,7 @@ class PostsViewController: NSViewController {
 extension PostsViewController: NSTableViewDataSource, NSTableViewDelegate {
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        print("Table count \(HackerNewsCommunication.shared.posts.count)")
+        //print("Table count \(HackerNewsCommunication.shared.posts.count)")
         return HackerNewsCommunication.shared.posts.count;
     }
     
@@ -74,9 +73,8 @@ extension PostsViewController: NSTableViewDataSource, NSTableViewDelegate {
         let item = HackerNewsCommunication.shared.posts[row]
         
         cell.txtTitle.stringValue = item.title
-        cell.txtUrl.stringValue = item.url
-        cell.txtPoints.stringValue = "Points \(item.score)"
-        cell.txtUsername.stringValue = item.author
+        cell.txtUrl.stringValue = item.url.absoluteString
+        cell.txtDetails.stringValue = "\(item.score) points by \(item.author)"
         
         return cell
         
@@ -86,11 +84,4 @@ extension PostsViewController: NSTableViewDataSource, NSTableViewDelegate {
         self.postsDelegate?.cellWasSelected()
     }
     
-}
-
-extension PostsViewController: HackerNewsCommunicationDelegate {
-    func postsUpdated() {
-        print("Posts updated, reloading data")
-        tableView.reloadData()
-    }
 }
